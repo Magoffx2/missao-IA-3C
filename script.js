@@ -1,106 +1,119 @@
-const caixaPrincipal = document.querySelector(".caixa-principal");
-const caixaPerguntas = document.querySelector(".caixa-perguntas");
-const caixaAlternativas = document.querySelector(".caixa-alternativas");
-const caixaResultado = document.querySelector(".caixa-resultado");
-const textoResultado = document.querySelector(".texto-resultado");
-
-const perguntas = [
+export const perguntas = [
     {
-        enunciado: "Pergunta 1",
+        enunciado: "Você assiste gameplay de algum youtuber ?",
         alternativas: [
             {
-                texto: "Alternativa 1 da pergunta 1",
+                texto: "Sim",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
-                    ]
+                    "Ao assistir, ele está sendo um inútil"
+                    ],
+                proxima: 1,
             },
             {
-                texto: "Alternativa 2 da pergunta 1",
+                texto: "Não",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
-                    ]
-            }           
-            
+                    "Ao não assistir, ele está sendo produtivo em porcaria nenhuma"
+                    ],
+                proxima: 1, 
+            },
         ]
     },
+    
     {
-        enunciado: "Pergunta 2",
+        enunciado: "Você gosta de jogar jogos de terror ?",
         alternativas: [
             {
-                texto:"Alternativa 1 da pergunta 2",
+                texto:"Sim",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
-                    ]
+                    " e que ao gostar de jogo de terror ele não tem medo. "
+                    ],
+                proxima: 2, 
             },
             {
-                texto: "Alternativa 2 da pergunta 2",
+                texto: "Não, tenho medo",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
-                    ]
-            }
+                    " e que ao gostar de jogo de terror ele tem medo. "
+                    ],
+                proxima: 2, 
+            },
         ]
     },
+    
     {
-        enunciado: "Pergunta 3",
+        enunciado: "Você prefere que tipo de plataforma ?",
         alternativas: [
             {
-                texto:"Alternativa 1 da pergunta 3",
+                texto:"Consoles",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
+                    "Quando ele escolhe console ele mostra o quão burro ele é,"
+                    ],
+                proxima: 3, 
+            },
+            {
+                texto:"Computador",
+                afirmacao: [
+                    "Quando ele escolhe PC ele mostra o quão sábio ele é, "
+                ],
+                proxima: 3, 
+            },
+        ]
+    },
+    
+    {
+        enunciado: "Você acha justo o preço cobrados nos jogos ?",
+        alternativas: [
+            {
+                texto: "Sim",
+                afirmacao: [
+                    "e que quando ele acha o preço dos jogos justo, ele mostra o quão burro financeiramente é"
+                    ],
+                proxima: 4, 
+            },
+            {
+                texto: "Não, eu sou inteligente",
+                afirmacao: [
+                    "e que quando ele acha o preço dos jogos justo, ele mostra o quão burro financeiramente é"
+                ],
+                proxima: 4, 
+            },     
+        ]
+    },
+    
+    {
+        enunciado: "Você é a favor da pirataria ?",
+        alternativas: [
+            {
+                texto: "Sim",
+                afirmacao: [
+                    ". O cara lembrou que mora no Brasil "
+                    ],
+                proxima: 5, 
+            },
+            {
+                texto: "Não, eu sou um bosta",
+                afirmacao: [
+                    ". O cara esqueceu que mora no Brasil "
+                    ],
+                proxima: 5, 
+            },
+        ]
+    },
+    
+    {
+        enunciado: "Você gostaria de trabalhar com a programação de jogos ?",
+        alternativas: [
+            {
+                texto: "Sim",
+                afirmacao: [
+                    " mal sabia ele(a) que irá passar fome"
                     ]
             },
             {
-                texto:"Alternativa 2 da pergunta 3",
+                texto: "Não",
                 afirmacao: [
-                    "afirmacao 1",
-                    "afirmacao 2"
-                    ]
-            }
-            
+                    " mal sabia ele que escapou da fome, amém !"
+                    ] 
+            },   
         ]
     },
 ];
-
-let atual = 0; 
-let perguntaAtual;
-let historiaFinal = "";
-
-function mostraPergunta() {
-    if(atual >= perguntas.length){
-        mostraResultado();
-        return;
-    }
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
-    mostraAlternativas();
-}
-
-function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
-    }
-}
-
-function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacoes + " ";
-    atual++;
-    mostraPergunta();
-}
-
-function mostraResultado(){
-    caixaPerguntas.textContent = "Em 2049...";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = ""; 
-}
-
-mostraPergunta();
