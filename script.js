@@ -40,7 +40,7 @@ export const perguntas = [
     },
     
     {
-        enunciado: "quem é o maior artilheiro da historia da campions league ?",
+        enunciado: "quem é o maior artilheiro da historia da champions league ?",
         alternativas: [
             {
                 texto:"Cristiano Ronaldo",
