@@ -1,18 +1,18 @@
 export const perguntas = [
     {
-        enunciado: "Você assistiu o atlético levando uma taca do Corinthians ?",
+        enunciado: "Você assistiu o atlético Paranaense levando uma taca do Corinthians ?",
         alternativas: [
             {
                 texto: "Sim",
                 afirmacao: [
-                    "Ao assistir, ele está sendo um inútil"
+                    "ele vai ser rebaixado"
                     ],
                 proxima: 1,
             },
             {
                 texto: "Não",
                 afirmacao: [
-                    "Ao não assistir, ele está sendo produtivo em porcaria nenhuma"
+                    "caverinha mae do tecnico"
                     ],
                 proxima: 1, 
             },
@@ -20,19 +20,19 @@ export const perguntas = [
     },
     
     {
-        enunciado: "Você gosta de jogar jogos de terror ?",
+        enunciado: "Você qual seleção venceu a copa do mundo de 2018? ?",
         alternativas: [
             {
-                texto:"Sim",
+                texto:"França",
                 afirmacao: [
-                    " e que ao gostar de jogo de terror ele não tem medo. "
+                    " tartaruga ninja jogou muito. "
                     ],
                 proxima: 2, 
             },
             {
-                texto: "Não, tenho medo",
+                texto: "Italia",
                 afirmacao: [
-                    " e que ao gostar de jogo de terror ele tem medo. "
+                    " jogou nada. "
                     ],
                 proxima: 2, 
             },
@@ -40,19 +40,19 @@ export const perguntas = [
     },
     
     {
-        enunciado: "Você prefere que tipo de plataforma ?",
+        enunciado: "quem é o maior artilheiro da historia da campions league ?",
         alternativas: [
             {
-                texto:"Consoles",
+                texto:"Cristiano Ronaldo",
                 afirmacao: [
-                    "Quando ele escolhe console ele mostra o quão burro ele é,"
+                    "ele mesmo a fera,"
                     ],
                 proxima: 3, 
             },
             {
-                texto:"Computador",
+                texto:"Neymar",
                 afirmacao: [
-                    "Quando ele escolhe PC ele mostra o quão sábio ele é, "
+                    "o famoso cai cai, "
                 ],
                 proxima: 3, 
             },
@@ -60,19 +60,19 @@ export const perguntas = [
     },
     
     {
-        enunciado: "Você acha justo o preço cobrados nos jogos ?",
+        enunciado: "em que ano pelé venceu sua primeira copa do mundo? ?",
         alternativas: [
             {
-                texto: "Sim",
+                texto: "1958",
                 afirmacao: [
-                    "e que quando ele acha o preço dos jogos justo, ele mostra o quão burro financeiramente é"
+                    "nessa data bb"
                     ],
                 proxima: 4, 
             },
             {
-                texto: "Não, eu sou inteligente",
+                texto: "1954",
                 afirmacao: [
-                    "e que quando ele acha o preço dos jogos justo, ele mostra o quão burro financeiramente é"
+                    "ganhou nada"
                 ],
                 proxima: 4, 
             },     
@@ -80,19 +80,19 @@ export const perguntas = [
     },
     
     {
-        enunciado: "Você é a favor da pirataria ?",
+        enunciado: "qual clube brasileiro tem mais titulos da libertadores ?",
         alternativas: [
             {
-                texto: "Sim",
+                texto: "atletico paranaense",
                 afirmacao: [
-                    ". O cara lembrou que mora no Brasil "
+                    ".tem nada kkkkkk "
                     ],
                 proxima: 5, 
             },
             {
-                texto: "Não, eu sou um bosta",
+                texto: "palmeiras",
                 afirmacao: [
-                    ". O cara esqueceu que mora no Brasil "
+                    ".porquinho "
                     ],
                 proxima: 5, 
             },
@@ -100,18 +100,18 @@ export const perguntas = [
     },
     
     {
-        enunciado: "Você gostaria de trabalhar com a programação de jogos ?",
+        enunciado: "qual jogador recebeu o prêmio de melhor do mundo pela FIFA em 2022 ?",
         alternativas: [
             {
-                texto: "Sim",
+                texto: "messi",
                 afirmacao: [
-                    " mal sabia ele(a) que irá passar fome"
+                    "ele, é o melhor"
                     ]
             },
             {
-                texto: "Não",
+                texto: "vinijr",
                 afirmacao: [
-                    " mal sabia ele que escapou da fome, amém !"
+                    "joga nada!"
                     ] 
             },   
         ]
