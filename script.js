@@ -45,7 +45,7 @@ export const perguntas = [
             {
                 texto:"Cristiano Ronaldo",
                 afirmacao: [
-                    "ele mesmo a fera,"
+                    "ele mesmo, a fera,"
                     ],
                 proxima: 3, 
             },
