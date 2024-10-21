@@ -1,6 +1,6 @@
 export const perguntas = [
     {
-        enunciado: "Você assiste gameplay de algum youtuber ?",
+        enunciado: "Você assistiu o atlético levando uma taca do Corinthians ?",
         alternativas: [
             {
                 texto: "Sim",
