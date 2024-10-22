@@ -1,119 +1,81 @@
-export const perguntas = [
-    {
-        enunciado: "Você assistiu o atlético Paranaense levando uma taca do Corinthians ?",
-        alternativas: [
-            {
-                texto: "Sim",
-                afirmacao: [
-                    "ele vai ser rebaixado"
-                    ],
-                proxima: 1,
-            },
-            {
-                texto: "Não",
-                afirmacao: [
-                    "caverinha mae do tecnico"
-                    ],
-                proxima: 1, 
-            },
-        ]
-    },
-    
-    {
-        enunciado: "Você qual seleção venceu a copa do mundo de 2018? ?",
-        alternativas: [
-            {
-                texto:"França",
-                afirmacao: [
-                    " tartaruga ninja jogou muito. "
-                    ],
-                proxima: 2, 
-            },
-            {
-                texto: "Italia",
-                afirmacao: [
-                    " jogou nada. "
-                    ],
-                proxima: 2, 
-            },
-        ]
-    },
-    
-    {
-        enunciado: "quem é o maior artilheiro da historia da champions league ?",
-        alternativas: [
-            {
-                texto:"Cristiano Ronaldo",
-                afirmacao: [
-                    "ele mesmo, a fera,"
-                    ],
-                proxima: 3, 
-            },
-            {
-                texto:"Neymar",
-                afirmacao: [
-                    "o famoso cai cai, "
-                ],
-                proxima: 3, 
-            },
-        ]
-    },
-    
-    {
-        enunciado: "em que ano pelé venceu sua primeira copa do mundo? ?",
-        alternativas: [
-            {
-                texto: "1958",
-                afirmacao: [
-                    "nessa data bb"
-                    ],
-                proxima: 4, 
-            },
-            {
-                texto: "1954",
-                afirmacao: [
-                    "ganhou nada"
-                ],
-                proxima: 4, 
-            },     
-        ]
-    },
-    
-    {
-        enunciado: "qual clube brasileiro tem mais titulos da libertadores ?",
-        alternativas: [
-            {
-                texto: "atletico paranaense",
-                afirmacao: [
-                    ".tem nada kkkkkk "
-                    ],
-                proxima: 5, 
-            },
-            {
-                texto: "palmeiras",
-                afirmacao: [
-                    ".porquinho "
-                    ],
-                proxima: 5, 
-            },
-        ]
-    },
-    
-    {
-        enunciado: "qual jogador recebeu o prêmio de melhor do mundo pela FIFA em 2022 ?",
-        alternativas: [
-            {
-                texto: "messi",
-                afirmacao: [
-                    "ele, é o melhor"
-                    ]
-            },
-            {
-                texto: "vinijr",
-                afirmacao: [
-                    "joga nada!"
-                    ] 
-            },   
-        ]
-    },
-];
+import {aleatorio, nome} from './aleatorio.js';
+import {perguntas} from './perguntas.js';
+
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente = document.querySelector(".novamente-btn"); 
+const botaoIniciar = document.querySelector(".iniciar-btn");
+const telaInicial = document.querySelector(".tela-inicial");
+
+let atual = 0; 
+let perguntaAtual;
+let historiaFinal = "";
+
+botaoIniciar.addEventListener('click', iniciaJogo);
+
+function iniciaJogo() {
+    atual = 0;
+    historiaFinal = "";
+    telaInicial.style.display = 'none';
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
+}
+
+function mostraPergunta() {
+    if(atual >= perguntas.length){
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for(const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+    historiaFinal += afirmacoes + " ";
+   if(opcaoSelecionada.proxima !== undefined) {
+       atual = opcaoSelecionada.proxima;
+   }else {
+       mostraResultado();
+       return;
+   }
+    mostraPergunta();
+}
+
+function mostraResultado(){
+    caixaPerguntas.textContent = `Após terminar o jogo, ${nome} percebeu que `;
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+    caixaResultado.classList.add("mostrar"); 
+    botaoJogarNovamente.addEventListener("click", jogarNovamente); 
+}
+
+function jogarNovamente(){
+    atual = 0;
+    historiaFinal = "";
+    caixaResultado.classList.remove("mostrar"); 
+    mostraPergunta();
+}
+
+function substituiNome() {
+    for(const pergunta of perguntas) {
+        pergunta.enunciado = pergunta.enunciado.replace(/você/g, nome);
+    }
+}
+substituiNome();
